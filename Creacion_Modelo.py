@@ -1,6 +1,7 @@
 # =========================================================
 # Ajuste y evaluación final del modelo de clasificación de gatos, perros y otros
 # =========================================================
+import os
 import tensorflow as tf
 from tensorflow.keras.models import Model
 from tensorflow.keras.applications import MobileNetV2
@@ -16,9 +17,10 @@ import numpy as np
 # =========================================================
 # RUTAS
 # =========================================================
-train_dir = r"dataset_dividido\train"
-val_dir   = r"dataset_dividido\valid"
-test_dir  = r"dataset_dividido\test"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+train_dir = os.path.join(BASE_DIR, "dataset_dividido", "train")
+val_dir   = os.path.join(BASE_DIR, "dataset_dividido", "valid")
+test_dir  = os.path.join(BASE_DIR, "dataset_dividido", "test")
 
 IMG_SIZE = (160, 160)
 BATCH_SIZE = 32
